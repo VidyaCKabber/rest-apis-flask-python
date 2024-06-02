@@ -8,3 +8,6 @@
 #### 2. create docker image -> docker build -t rest-apis-flask-python .
 #### 3. Create container -> docker run -dp 5000:5000 rest-apis-flask-python
 
+### Auto reload of container
+#### docker run -dp 5000:5000 -w /app -v "$(pwd):/app" rest-apis-flask-python                        
+
