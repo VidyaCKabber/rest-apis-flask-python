@@ -1,9 +1,9 @@
-import uuid
-from flask import Flask, request
+from models import StoreModel
 from flask.views import MethodView
 from flask_smorest import Blueprint, abort
-from db import stores, items
 from schemas import StoreSchema
+from db import db
+from sqlalchemy.exc import SQLAlchemyError, IntegrityError
 
 blp = Blueprint('Stores', __name__, description='Operations on stores')
 
@@ -12,51 +12,38 @@ blp = Blueprint('Stores', __name__, description='Operations on stores')
 class Store(MethodView):
     @blp.response(200, StoreSchema)
     def get(self, store_id):
-        try:
-            return stores[store_id]
-        except KeyError:
-            abort(404, message="Store not found")
+        store = StoreModel.query.get_or_404(store_id)
+        return store
 
     def delete(self, store_id):
-        try:
-            del stores[store_id]
-            global items
-            items = dict(
-                filter(lambda item: item[1]["store_id"]
-                       != store_id, items.items())
-            )
-            return {"message": "Store deleted successfully"}
-        except KeyError:
-            abort(404, message="Store not found")
-
+        store = StoreModel.query.get_or_404(store_id)
+        db.session.delete(store)
+        db.session.commit()
+        return {"message": "Store deleted"}, 204
 
 @blp.route("/store")
 class StoreList(MethodView):
-    @blp.response(200, StoreSchema)
+    @blp.response(200, StoreSchema(many=True))
     def get(self):
-        return {"stores": list(stores.values())}
+        return StoreModel.query.all()
 
     @blp.arguments(StoreSchema)
     @blp.response(200, StoreSchema)
     def post(self, store_data):
-        for store in stores.values():
-            if store_data["name"] == store["name"]:
-                abort(405, message="Store already exists")
-
-        store_id = uuid.uuid4().hex
-        store = {**store_data, "id": store_id}
-        stores[store_id] = store
-        return store, 201
+        store = StoreModel(**store_data)
+        try:
+            db.session.add(store)
+            db.session.commit()
+        except IntegrityError:
+            abort(405, message="A store with that name already exists") 
+        except SQLAlchemyError:
+            abort(500, message="An error occured") 
+        
+        return store
 
 
 @blp.route("/store/items/<string:store_id>")
 class StoreItemList(MethodView):
     def get(self, store_id):
-        try:
-            store = stores[store_id]
-        except KeyError:
-            abort(404, message="Store not found")
-
-        store_items = [item for _, item in items.items()
-                       if item["store_id"] == store_id]
-        return {"store": store, "items": store_items}
+        store = StoreModel.query.get_or_404(store_id)
+        return store.items
