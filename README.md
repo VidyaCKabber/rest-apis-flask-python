@@ -1,5 +1,5 @@
 # rest-apis-flask-python
-
+### https://rest-apis-flask.teclado.com/docs/docker_intro/in_depth_docker_tutorial/
 # Run as flask app execute following cmd
 ## flask run
 
@@ -9,5 +9,8 @@
 #### 3. Create container -> docker run -dp 5000:5000 rest-apis-flask-python
 
 ### Auto reload of container
-#### docker run -dp 5000:5000 -w /app -v "$(pwd):/app" rest-apis-flask-python                        
+#### docker run -dp 5000:5000 -w /app -v "$(pwd):/app" rest-apis-flask-python   
+
+### Swagger doc
+#### http://localhost:5000/swagger-ui
 

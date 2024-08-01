@@ -4,3 +4,5 @@ __pycache__/
 .venv/
 node_modules/
 .env
+data.db
+.Ds_store

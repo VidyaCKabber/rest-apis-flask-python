@@ -1,4 +1,4 @@
-#!/Users/vikabber/Desktop/Programs/Projects/Flast-First-Project/.venv/bin/python3
+#!/Users/vikabber/Desktop/Programs/Projects/rest-apis-flask-python/.venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

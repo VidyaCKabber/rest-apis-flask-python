@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/vikabber/Desktop/Programs/Projects/Flast-First-Project/.venv"
+VIRTUAL_ENV="/Users/vikabber/Desktop/Programs/Projects/rest-apis-flask-python/.venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

@@ -30,7 +30,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/vikabber/Desktop/Programs/Projects/Flast-First-Project/.venv"
+set -gx VIRTUAL_ENV "/Users/vikabber/Desktop/Programs/Projects/rest-apis-flask-python/.venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
