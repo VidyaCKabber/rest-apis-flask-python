@@ -24,15 +24,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:5000/store",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/store",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{baseUrl}}"
 					],
-					"port": "5000",
 					"path": [
 						"store"
 					]
@@ -55,15 +50,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:5000/store",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/store",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{baseUrl}}"
 					],
-					"port": "5000",
 					"path": [
 						"store"
 					]
@@ -78,10 +68,16 @@
 			},
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzk1NjcwMywianRpIjoiNWYwNTM3YjMtZDMyOC00N2E3LThjZjktNmY0MDMwZmQ3NWM5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE3OTU2NzAzLCJjc3JmIjoiY2IyNTZjODMtNTRhNC00MmFlLWFiZTEtNWRkM2ZjNzA5NmZmIiwiZXhwIjoxNzE3OTU3NjAzfQ.0x77oRx8p_vIa391CSR99zgMc0PaBD_mO7MeRkPkfEA",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"store_id\": \"6ebc195e30e44a9fb5373f323791fb21\",\n    \"name\": \"23\",\n    \"price\": \"$23\"\n}\n",
+					"raw": "{\n    \"store_id\": \"7\",\n    \"name\": \"new\",\n    \"price\": 12\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -89,15 +85,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:5000/item",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/item",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{baseUrl}}"
 					],
-					"port": "5000",
 					"path": [
 						"item"
 					]
@@ -111,15 +102,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/item",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/item",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{baseUrl}}"
 					],
-					"port": "5000",
 					"path": [
 						"item"
 					]
@@ -133,18 +119,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/store/90a83947583049dfa6c7bc7b3b6d6f96",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/store/1",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{baseUrl}}"
 					],
-					"port": "5000",
 					"path": [
 						"store",
-						"90a83947583049dfa6c7bc7b3b6d6f96"
+						"1"
 					]
 				}
 			},
@@ -154,20 +135,21 @@
 			"name": "Get item",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzk1NDY5MiwianRpIjoiMzUxZTQ3MDktZjg0Ny00YTUwLTkwMTMtZWMwNzg3YjczMTQzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE3OTU0NjkyLCJjc3JmIjoiOGVlMTdmYTktOWUxNi00N2ExLTgxYjQtZjVjYjNlYTg4N2JhIiwiZXhwIjoxNzE3OTU1NTkyfQ.4grZp8IG1vywVhjzSlf_7aMriEp3sW5RCMH7jH8an_I",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://127.0.0.1:5000/item/69e2bb2f7ca4498ea554e973b47eb1bd",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/item/2",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{baseUrl}}"
 					],
-					"port": "5000",
 					"path": [
 						"item",
-						"69e2bb2f7ca4498ea554e973b47eb1bd"
+						"2"
 					]
 				}
 			},
@@ -177,7 +159,13 @@
 			"name": "Delete item",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzk1NzI3NiwianRpIjoiOTg5MTI1NDctZDAxOC00ZDI0LTgzYjEtNTU1MTlkMTQxZWI3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE3OTU3Mjc2LCJjc3JmIjoiMWQ5ODFiNGItMDg3MS00MGQxLTljYjEtYWIzOTdmOTRkMzU1IiwiZXhwIjoxNzE3OTU4MTc2LCJpc19hZG1pbiI6dHJ1ZX0.IThcOfW5r_0a_r1Es_NtYwntNoFwN1S8yTKa3gCDqpc",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "",
@@ -188,18 +176,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:5000/item/69e2bb2f7ca4498ea554e973b47eb1bd",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/item/1",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{baseUrl}}"
 					],
-					"port": "5000",
 					"path": [
 						"item",
-						"69e2bb2f7ca4498ea554e973b47eb1bd"
+						"1"
 					]
 				}
 			},
@@ -211,15 +194,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/store/items/01963ed2ea9f48c8922cbb805319a7b5",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/store/items/01963ed2ea9f48c8922cbb805319a7b5",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{baseUrl}}"
 					],
-					"port": "5000",
 					"path": [
 						"store",
 						"items",
@@ -235,18 +213,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/store/01963ed2ea9f48c8922cbb805319a7b5",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/store/1",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{baseUrl}}"
 					],
-					"port": "5000",
 					"path": [
 						"store",
-						"01963ed2ea9f48c8922cbb805319a7b5"
+						"1"
 					]
 				}
 			},
@@ -267,18 +240,194 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:5000/item/f3ddba79b8894ce19630d83cb7300e7a",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/item/f3ddba79b8894ce19630d83cb7300e7a",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{baseUrl}}"
 					],
-					"port": "5000",
 					"path": [
 						"item",
 						"f3ddba79b8894ce19630d83cb7300e7a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Tags by store id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/store/tag_id/tag",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"store",
+						"tag_id",
+						"tag"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Tag",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/store/store_id/tag",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"store",
+						"store_id",
+						"tag"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get details by tag id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/tag/tag_id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tag",
+						"tag_id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/register",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/user/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/user/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"Vidya\",\n    \"password\": \"Test@123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzk1Nzc0MiwianRpIjoiYTljMWI3M2MtYzgzNi00OTkxLWJhMTUtYWYwMDIzODFkMmY0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE3OTU3NzQyLCJjc3JmIjoiMzAzNDZmOGYtZmRiMS00YzZmLThmZDItNTJhMTEwZmQyMjEzIiwiZXhwIjoxNzE3OTU4NjQyLCJpc19hZG1pbiI6dHJ1ZX0.YGbJV_unSqTizUz23-5b2wvKYhUcyqMda69dOBKx-ik",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/logout",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/refresh",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"refresh"
 					]
 				}
 			},
